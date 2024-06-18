@@ -22,7 +22,7 @@ Dự án này nhằm tạo ra một hệ thống quản lý dự án để theo 
   - Theo dõi công việc của từng thành viên trong từng sprint.
   - Hiển thị danh sách thành viên và các user stories tương ứng.
 
-### 3. Báo Cáo Tiến Độ
+### 3. Báo Cáo Tiến Đooj
 
 - **Mô tả:** Cung cấp báo cáo tiến độ dự án theo sprint và theo thành viên.
 - **Chức năng chính:**
