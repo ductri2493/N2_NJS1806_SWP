@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   CButton,
   CCard,
@@ -12,11 +12,11 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
-} from '@coreui/react'
-import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
-import UserStorage from '../../util/UserStorage'
-import fetchData from '../../util/ApiConnection'
+} from '@coreui/react';
+import CIcon from '@coreui/icons-react';
+import { cilLockLocked, cilUser } from '@coreui/icons';
+import UserStorage from '../../util/UserStorage';
+import fetchData from '../../util/ApiConnection';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -57,34 +57,34 @@ const Login = () => {
 
     // Username validations
     if (!username) {
-      errors.username = 'Username is required (T1)';
+      errors.username = 'Username is required';
     } else {
       if (/[^a-zA-Z0-9]/.test(username)) {
-        errors.username = 'Special characters are not allowed (T2)';
+        errors.username = 'Special characters are not allowed ';
       }
-      if (!/^[a-zA-Z0-9]/.test(username)) {
-        errors.username = 'First character cannot be a space (T3.1)';
+      if (username.startsWith(' ')) {
+        errors.username = 'The first character cannot be a space ';
       }
     }
 
     // Password validations
     if (!password) {
-      errors.password = 'Password is required (T4)';
+      errors.password = 'Password is required ';
     } else {
       if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-        errors.password = 'Password must contain at least one special character (T5)';
+        errors.password = 'Password must contain at least one special character ';
       }
       if (!/\d/.test(password)) {
-        errors.password = 'Password must contain at least one number (T6)';
+        errors.password = 'Password must contain at least one number ';
       }
       if (!/[A-Z]/.test(password)) {
-        errors.password = 'Password must contain at least one uppercase letter (T7)';
+        errors.password = 'Password must contain at least one uppercase letter ';
       }
       if (password.length < 8) {
-        errors.password = 'Password must be at least 8 characters long (T8)';
+        errors.password = 'Password must be at least 8 characters long ';
       }
       if (password.startsWith(' ')) {
-        errors.password = 'First character cannot be a space (T9)';
+        errors.password = 'The first character of the password cannot be a space ';
       }
     }
 
@@ -130,7 +130,7 @@ const Login = () => {
                         onChange={(e) => setUsername(e.target.value)}
                         invalid={!!errors.username}
                       />
-                      {errors.username && <p className="text-danger">{errors.username}</p>}
+                      {errors.username && <p className="text-danger m-1">{errors.username}</p>}
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -144,7 +144,7 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         invalid={!!errors.password}
                       />
-                      {errors.password && <p className="text-danger">{errors.password}</p>}
+                      {errors.password && <p className="text-danger m-1">{errors.password}</p>}
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
